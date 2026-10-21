@@ -1,0 +1,17 @@
+checkSchema({...}, {'body'}): một thư viện của express-validator hỗ trợ việc validate các giá trị truyền vào của một req
+    ở trong {} là một object schema, thay vì phải viết từng cái check riêng lẻ lè nhà lè nhè
+    ***Với những thuộc tính nó đi qua sẽ có khả năng check true false, true thì cứ đi tiếp
+    false thì sẽ tạo ra lỗi và lấy cái msg in lỗi làm giá trị
+    Cái request sẽ đi qua cái checkSchema này và đi qua từng thuộc tính kiểm tra của object schema, nếu gặp
+    thuộc tính nào không thoả thì 
+***Lưu ý: ở cái tham số đầu tiên truyền vào là NHỮNG thuộc tính validate, tham số thứ hai ( ['body'] ) thì nói cái checkSchema
+sẽ đi kiểm tra những thuộc tính của req ở đâu, trường hợp này là ở body, ngoài ra mình có những nơi khác để check là
+    1. querry
+    2. params
+    3. cookies
+    4. headers
+    **nếu không truyền tham số thứ hai vào thì checkSchema sẽ đi kiểm ở đủ hết 5 vị trí luôn
+=> validate(checkSchema({...},{...})){}:
+-----
+return async (req, res, next) => {...} nghĩa là gì?
+    - đây là một hàm trả về hàm khác (higher-order function)
